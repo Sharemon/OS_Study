@@ -54,6 +54,7 @@ void task2(void * param)
 	}
 }
 
+extern void PendSV(void);
 
 int main(void)
 {
@@ -71,7 +72,7 @@ int main(void)
 		flag = 1;
 		delay(100);
 		
-		trigPendSVC();
+		PendSV();
 	}
 	
 	return 0;

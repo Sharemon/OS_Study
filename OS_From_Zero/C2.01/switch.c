@@ -1,4 +1,4 @@
-__asm void PendSV_Handler(void)
+__asm void PendSV(void)
 {
 	IMPORT stackPtr
 	
