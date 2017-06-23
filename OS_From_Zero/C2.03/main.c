@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "myOS.h"
+#include "ARMCM3.h"
 
 	
 Task_t * curTask;
@@ -70,7 +71,6 @@ void task1(void * param)
 		delay(100);
 		taks1Flag = 1;
 		delay(100);
-		TaskSched();
 	}
 }
 
@@ -83,14 +83,26 @@ void task2(void * param)
 		delay(100);
 		taks2Flag = 1;
 		delay(100);
-		TaskSched();
 	}
 }
 
-extern void PendSV(void);
+void SysTick_Handler(void)
+{
+	TaskSched();
+}
+
 
 int main(void)
 {
+	// Init SysTick
+	SysTick->LOAD = SystemCoreClock/100 -1;
+	NVIC_SetPriority(SysTick_IRQn, (1<<__NVIC_PRIO_BITS)-1);
+	SysTick->VAL = 0;
+	SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk |
+									SysTick_CTRL_TICKINT_Msk |
+									SysTick_CTRL_ENABLE_Msk;
+	
+	
 	// Initial task
 	TaskInit(&tcbtask1, task1, (void *)0x11111111, &task1Env[1024]);
 	TaskInit(&tcbtask2, task2, (void *)0x22222222, &task2Env[1024]);

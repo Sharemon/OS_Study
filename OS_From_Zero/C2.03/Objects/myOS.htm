@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\myOS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\myOS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Jun 24 02:01:16 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Jun 24 05:37:37 2017
 <BR><P>
 <H3>Maximum Stack Usage =         20 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -18,7 +18,6 @@ Mutually Recursive functions
  <LI><a href="#[8]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">UsageFault_Handler</a><BR>
  <LI><a href="#[9]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">SVC_Handler</a><BR>
  <LI><a href="#[a]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[a]">DebugMon_Handler</a><BR>
- <LI><a href="#[c]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[c]">SysTick_Handler</a><BR>
  <LI><a href="#[17]">AACI_IRQHandler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[17]">AACI_IRQHandler</a><BR>
 </UL>
 <P>
@@ -46,7 +45,7 @@ Function Pointers
  <LI><a href="#[28]">Reset_Handler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
  <LI><a href="#[23]">SPI_IRQHandler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
  <LI><a href="#[9]">SVC_Handler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
- <LI><a href="#[c]">SysTick_Handler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
+ <LI><a href="#[c]">SysTick_Handler</a> from main.o(i.SysTick_Handler) referenced from startup_armcm3.o(RESET)
  <LI><a href="#[24]">SystemInit</a> from system_armcm3.o(i.SystemInit) referenced from startup_armcm3.o(.text)
  <LI><a href="#[f]">TIM0_IRQHandler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
  <LI><a href="#[10]">TIM2_IRQHandler</a> from startup_armcm3.o(.text) referenced from startup_armcm3.o(RESET)
@@ -254,13 +253,6 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(RESET)
 </UL>
-<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_armcm3.o(.text))
-<BR><BR>[Calls]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
-</UL>
-<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(RESET)
-</UL>
 <P><STRONG><a name="[17]"></a>AACI_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_armcm3.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AACI_IRQHandler
 </UL>
@@ -378,7 +370,14 @@ Global Symbols
 
 <P><STRONG><a name="[6a]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[6b]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[c]"></a>SysTick_Handler</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, main.o(i.SysTick_Handler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Handler &rArr; TaskSched
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSched
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(RESET)
+</UL>
+<P><STRONG><a name="[6b]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, indicate_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[24]"></a>SystemInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_armcm3.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(.text)
@@ -398,8 +397,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSwitch
 </UL>
-<BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task2
-<LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task1
+<BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
 <P><STRONG><a name="[3d]"></a>TaskSwitch</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, switch.o(i.TaskSwitch))
@@ -411,7 +409,7 @@ Global Symbols
 <LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;task1
 </UL>
 
-<P><STRONG><a name="[34]"></a>main</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(i.main))
+<P><STRONG><a name="[34]"></a>main</STRONG> (Thumb, 120 bytes, Stack size 8 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = main &rArr; TaskInit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskRun
@@ -420,19 +418,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[26]"></a>task1</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, main.o(i.task1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = task1 &rArr; TaskSched
-</UL>
-<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSched
+<P><STRONG><a name="[26]"></a>task1</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.task1))
+<BR><BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[27]"></a>task2</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, main.o(i.task2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = task2 &rArr; TaskSched
-</UL>
-<BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
-<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSched
+<P><STRONG><a name="[27]"></a>task2</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, main.o(i.task2))
+<BR><BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL><P>

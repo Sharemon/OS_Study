@@ -22,15 +22,20 @@ void trigPendSVC()
 	MEM8(NVIC_SYSPRI2) = NVIC_PENDSV_PRI;
 	MEM32(NVIC_INT_CTRL) = NVIC_PENDSVSET;
 }
-
+/*
+	int i,j,k,m;//,n,p;
+	i++;j++;k++;//m++;n++;p++;
+	g_variable2=i;g_variable2=j;g_variable2=k;//g_variable2=m;g_variable2=n;g_variable2=p;
+*/
+int g_variable2;
 void TaskSched()
 {
-	if (curTask == taskTable[0])
-		nxtTask = taskTable[1];
-	else
-		nxtTask = taskTable[0];
-	
-	TaskSwitch();
+	int i1=10,i2=10,i3=10,i4=10,i5=10,i6=10,i7=10,i8=10,i9=10,i10=10;
+	int i11=10,i12=10,i13=10,i14=10,i15=10,i16=10,i17=10,i18=10,i19=10,i20=10;
+	delay(i1);delay(i2);delay(i3);delay(i4);delay(i5);
+	delay(i6);delay(i7);delay(i8);delay(i9);delay(i10);
+	delay(i11);delay(i12);delay(i13);delay(i14);delay(i15);
+	delay(i16);delay(i17);delay(i18);delay(i19);delay(i20);
 }
 
 
@@ -62,14 +67,16 @@ void TaskInit(Task_t * tTaskPtr, void (*entry)(void *),
 }
 
 int taks1Flag;
+int g_variable;
 void task1(void * param)
 {
+	int i1=0,i2=0,i3=0,i4=0,i5=0,i6=0,i7=0,i8=0,i9=0,i10=0;
 	for(;;)
 	{
-		taks1Flag = 0;
-		delay(100);
-		taks1Flag = 1;
-		delay(100);
+		i1++;i2++;i3++;i4++;i5++;
+		i6++;i7++;i8++;i9++;i10++;
+		g_variable=i1;g_variable=i2;g_variable=i3;g_variable=i4;g_variable=i5;
+		g_variable=i6;g_variable=i7;g_variable=i8;g_variable=i9;g_variable=i10;
 		TaskSched();
 	}
 }
