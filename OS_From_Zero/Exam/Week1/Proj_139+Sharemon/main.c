@@ -3,7 +3,6 @@
 #include "ARMCM3.h"
 
 //--------------------- OS ----------------------
-
 Task_t * curTask;
 Task_t * nxtTask;
 Task_t * taskTable[2];
@@ -11,6 +10,11 @@ Task_t * taskTable[2];
 Task_t * idleTask;
 Task_t tcbIdle;
 TaskStack_t IdleEnv[1024];
+
+void IdleTask(void * param)
+{
+	for(;;){}
+}
 
 void TaskSched()
 {		
@@ -65,7 +69,6 @@ void TaskInit(Task_t * tTaskPtr, void (*entry)(void *),
 		void * param, TaskStack_t * stack)
 {
 	// will be saved by hardware
-	// will never store local variables. After return, the local variables will be released
 	*(--stack) = (unsigned long) (1<<24);
 	*(--stack) = (unsigned long) entry;
 	*(--stack) = (unsigned long) 0x14;
@@ -84,29 +87,31 @@ void TaskInit(Task_t * tTaskPtr, void (*entry)(void *),
 	*(--stack) = (unsigned long) 0x06;
 	*(--stack) = (unsigned long) 0x05;
 	*(--stack) = (unsigned long) 0x04;
+	*(--stack) = (unsigned long) 0x00;
 	
 	tTaskPtr->stackPtr = stack;
-}
-
-
-void IdleTask(void * param)
-{
-	for(;;){}
 }
 //--------------------- OS ----------------------
 
 
 //---------------- TASK ------------------
-Task_t tcbtask1;
-Task_t tcbtask2;
+//------------------------
+//-------- errno ---------
+int errno;
+//-------- errno ---------
+//------------------------
+
+Task_t tcbTask1;
+Task_t tcbTask2;
 
 TaskStack_t task1Env[1024];
 TaskStack_t task2Env[1024];
 
-
 int taks1Flag;
 void Task1(void * param)
 {
+	errno = 1;
+	
 	for(;;)
 	{
 		taks1Flag = 0;
@@ -119,6 +124,8 @@ void Task1(void * param)
 int taks2Flag;
 void Task2(void * param)
 {
+	errno = 2;
+	
 	for(;;)
 	{
 		taks2Flag = 0;
@@ -144,12 +151,12 @@ int main(void)
 	
 	
 	// Initial task
-	TaskInit(&tcbtask1, Task1, (void *)0x11111111, &task1Env[1024]);
-	TaskInit(&tcbtask2, Task2, (void *)0x22222222, &task2Env[1024]);
+	TaskInit(&tcbTask1, Task1, (void *)0x11111111, &task1Env[1024]);
+	TaskInit(&tcbTask2, Task2, (void *)0x22222222, &task2Env[1024]);
 	TaskInit(&tcbIdle, IdleTask, (void *)0, &IdleEnv[1024]);
 	
-	taskTable[0] = &tcbtask1;
-	taskTable[1] = &tcbtask2;
+	taskTable[0] = &tcbTask1;
+	taskTable[1] = &tcbTask2;
 	idleTask = &tcbIdle;
 	
 	nxtTask = taskTable[0];

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\myOS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\myOS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Jun 24 18:28:40 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Sat Jun 24 18:38:33 2017
 <BR><P>
 <H3>Maximum Stack Usage =         20 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -200,7 +200,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
 </UL>
 
-<P><STRONG><a name="[b]"></a>PendSV_Handler</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, switch.o(.emb_text))
+<P><STRONG><a name="[b]"></a>PendSV_Handler</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, switch.o(.emb_text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(RESET)
 </UL>
 <P><STRONG><a name="[29]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_armcm3.o(.text))
@@ -395,21 +395,21 @@ Global Symbols
 <P><STRONG><a name="[24]"></a>SystemInit</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, system_armcm3.o(i.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_armcm3.o(.text)
 </UL>
-<P><STRONG><a name="[26]"></a>Task1</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.Task1))
+<P><STRONG><a name="[26]"></a>Task1</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, main.o(i.Task1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Task1 &rArr; OSdelay &rArr; TaskSched
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSdelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[27]"></a>Task2</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.Task2))
+<P><STRONG><a name="[27]"></a>Task2</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, main.o(i.Task2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Task2 &rArr; OSdelay &rArr; TaskSched
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSdelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[40]"></a>TaskInit</STRONG> (Thumb, 132 bytes, Stack size 12 bytes, main.o(i.TaskInit))
+<P><STRONG><a name="[40]"></a>TaskInit</STRONG> (Thumb, 140 bytes, Stack size 12 bytes, main.o(i.TaskInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = TaskInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
