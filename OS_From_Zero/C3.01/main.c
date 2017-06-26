@@ -39,19 +39,19 @@ void TaskSched()
 	{
 		if (taskTable[0]->delayTicks == 0) nxtTask = taskTable[0];
 		else if (taskTable[1]->delayTicks == 0) nxtTask = taskTable[1];
-		else TaskExitCritical(status);return;
+		else {TaskExitCritical(status);return;}
 	}
 	else if (curTask == taskTable[0])
 	{
 		if (taskTable[1]->delayTicks == 0) nxtTask = taskTable[1];
 		else if (curTask->delayTicks != 0) nxtTask = idleTask;
-		else TaskExitCritical(status);return;
+		else {TaskExitCritical(status);return;}
 	}
 	else if (curTask == taskTable[1])
 	{
 		if (taskTable[0]->delayTicks == 0) nxtTask = taskTable[0];
 		else if (curTask->delayTicks != 0) nxtTask = idleTask;
-		else TaskExitCritical(status);return;
+		else {TaskExitCritical(status);return;}
 	}
 	
 	

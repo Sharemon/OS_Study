@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\myOS.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\myOS.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Mon Jun 26 23:03:39 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060300: Last Updated: Tue Jun 27 00:02:53 2017
 <BR><P>
 <H3>Maximum Stack Usage =         20 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -412,11 +412,13 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
 <P><STRONG><a name="[3f]"></a>TaskEnterCritical</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.TaskEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2
+<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSched
+<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2
 </UL>
 
 <P><STRONG><a name="[40]"></a>TaskExitCritical</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, main.o(i.TaskExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2
+<BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSched
+<LI><a href="#[27]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Task2
 </UL>
 
 <P><STRONG><a name="[42]"></a>TaskInit</STRONG> (Thumb, 132 bytes, Stack size 12 bytes, main.o(i.TaskInit))
@@ -429,10 +431,12 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[3e]"></a>TaskSched</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, main.o(i.TaskSched))
+<P><STRONG><a name="[3e]"></a>TaskSched</STRONG> (Thumb, 190 bytes, Stack size 8 bytes, main.o(i.TaskSched))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TaskSched
 </UL>
 <BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskSwitch
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskExitCritical
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TaskEnterCritical
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OSdelay
