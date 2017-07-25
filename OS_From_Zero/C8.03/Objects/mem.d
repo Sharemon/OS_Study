@@ -1,0 +1,10 @@
+.\objects\mem.o: mem.c
+.\objects\mem.o: myOS.h
+.\objects\mem.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\mem.o: list.h
+.\objects\mem.o: config.h
+.\objects\mem.o: task.h
+.\objects\mem.o: event.h
+.\objects\mem.o: sem.h
+.\objects\mem.o: mBox.h
+.\objects\mem.o: mem.h

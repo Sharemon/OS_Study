@@ -1,0 +1,16 @@
+.\objects\cpu.o: cpu.c
+.\objects\cpu.o: myOS.h
+.\objects\cpu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\cpu.o: list.h
+.\objects\cpu.o: config.h
+.\objects\cpu.o: task.h
+.\objects\cpu.o: event.h
+.\objects\cpu.o: sem.h
+.\objects\cpu.o: mBox.h
+.\objects\cpu.o: mem.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\Device\ARM\ARMCM3\Include\ARMCM3.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cm3.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmInstr.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\cmsis_armcc.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include\core_cmFunc.h
+.\objects\cpu.o: C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\Device\ARM\ARMCM3\Include\system_ARMCM3.h
