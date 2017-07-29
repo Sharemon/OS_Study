@@ -1,0 +1,11 @@
+.\objects\flag.o: flag.c
+.\objects\flag.o: myOS.h
+.\objects\flag.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\flag.o: list.h
+.\objects\flag.o: config.h
+.\objects\flag.o: task.h
+.\objects\flag.o: event.h
+.\objects\flag.o: sem.h
+.\objects\flag.o: mBox.h
+.\objects\flag.o: mem.h
+.\objects\flag.o: flag.h

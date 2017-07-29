@@ -1,0 +1,114 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.21.1.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Roy Pan, Microsoft, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.21a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 3 (build 300)
+Assembler:       Armasm.exe V5.06 update 3 (build 300)
+Linker/Locator:  ArmLink.exe V5.06 update 3 (build 300)
+Library Manager: ArmAr.exe V5.06 update 3 (build 300)
+Hex Converter:   FromElf.exe V5.06 update 3 (build 300)
+CPU DLL:         SARMCM3.DLL V5.21a
+Dialog DLL:      DCM.DLL V1.13.8.0
+Target DLL:      UL2CM3.DLL V1.158.5.0
+Dialog DLL:      TCM.DLL V1.14.14.0
+ 
+<h2>Project:</h2>
+C:\Users\Roy\Desktop\Proj Local\OS_Study\OS_From_Zero\C9.01\myOS.uvprojx
+Project File Date:  07/29/2017
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 3 (build 300)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target 1'
+compiling Bitmap.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+Bitmap.c: 0 warnings, 1 error
+compiling switch.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+switch.c: 0 warnings, 1 error
+compiling main.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+main.c: 0 warnings, 1 error
+compiling task.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+task.c: 0 warnings, 1 error
+compiling time.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+time.c: 0 warnings, 1 error
+compiling list.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+list.c: 0 warnings, 1 error
+compiling app.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+app.c: 0 warnings, 1 error
+compiling event.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+event.c(61): warning:  #177-D: variable "node" was declared but never referenced
+  	node_t * node;
+event.c: 1 warning, 1 error
+compiling cpu.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+cpu.c: 0 warnings, 1 error
+compiling sem.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+sem.c: 0 warnings, 1 error
+compiling mBox.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+mBox.c: 0 warnings, 1 error
+compiling mem.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+mem.c: 0 warnings, 1 error
+compiling flag.c...
+flag.h(27): error:  #20: identifier "uin32_t" is undefined
+  void FlagGroupNotify(flagGroup_t * flagGroup, uint8_t isSet, uin32_t flag);
+flag.c: 0 warnings, 1 error
+assembling startup_ARMCM3.s...
+compiling system_ARMCM3.c...
+".\Objects\myOS.axf" - 13 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.5.0.pack
+                ARM::CMSIS:CORE:4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.3.0
+   * Component: Startup Version: 1.0.1
+
+<h2>Collection of Component include folders:</h2>
+  C:\Users\Roy\Desktop\Proj Local\OS_Study\OS_From_Zero\C9.01\RTE
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\Device\ARM\ARMCM3\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:4.3.0
+
+   * Component: ARM::Device:Startup:1.0.1
+      Include file:  Device\ARM\ARMCM3\Include\ARMCM3.h
+      Source file:   Device\ARM\ARMCM3\Source\ARM\startup_ARMCM3.s
+      Source file:   Device\ARM\ARMCM3\Source\system_ARMCM3.c
+Target not created.
+Build Time Elapsed:  00:00:06
+</pre>
+</body>
+</html>
